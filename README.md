@@ -5,7 +5,7 @@
   <h3 align="center">couchsurvey</h3>
 
   <p align="center">
-    An Open-Sourve alternative to Typeform and Microsoft Forms
+    An Open-Source alternative to Typeform and Microsoft Forms
     <br />
     <a href="https://opensource.couchsurvey.com/">Website</a>  |  <a href="https://join.slack.com/t/couchsurvey-community/shared_invite/zt-thcbja0g-srPj6QUYosTyOr8NcAGa9g">Join slack community</a>
   </p>

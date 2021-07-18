@@ -1,14 +1,19 @@
 <p align="center">
+<a href="https://github.com/couchsurvey/couchsurvey">
+    <img src="https://opensource.couchsurvey.com/couchsurvey-icon-light.svg" alt="Logo" width="160">
+  </a>
   <h3 align="center">couchsurvey</h3>
 
   <p align="center">
     An Open-Sourve alternative to Typeform and Microsoft Forms
     <br />
-    <a href="https://opensource.couchsurvey.com/"><strong>Learn more</strong></a>
+    <a href="https://opensource.couchsurvey.com/">Website</a>  |  <a href="https://join.slack.com/t/couchsurvey-community/shared_invite/zt-thcbja0g-srPj6QUYosTyOr8NcAGa9g">Join slack community</a>
   </p>
 </p>
 
 ## About Couchsurvey
+
+<img width="937" alt="screenshot-couchsurvey" src="https://user-images.githubusercontent.com/675065/126078214-83cb0077-5149-4ac7-ae66-502ff31e9705.png">
 
 Are you looking for a modern open source survey & forms platform that keeps your participants' data private and secure? We are building a new & open user experience with a focus on privacy, usability and API-first integrability.
 
@@ -26,6 +31,46 @@ Are you looking for a modern open source survey & forms platform that keeps your
 - [React](https://reactjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Prisma](https://prisma.io/)
+
+## Getting started
+
+To get the project running locally on your machine you need to have the following development tools installed:
+
+- Node.JS
+- Yarn
+- PostgreSQL
+
+1. Clone the project:
+
+```
+git clone https://github.com/couchsurvey/couchsurvey.git && cd couchsurvey
+```
+
+2. Install Node.JS packages:
+
+```
+yarn install
+```
+
+3. Create a `.env` file based on `.env.examples` and change it according to your setup. Make sure the `DATABASE_URL` variable is set correctly according to your local database. You must also set the email variables to valid SMTP-credentials for the login to work.
+
+```
+cp .env.example .env && nano .env
+```
+
+4. Let prisma set up the database for you:
+
+```
+npx prisma db push
+```
+
+5. Start the development server:
+
+```
+yarn dev
+```
+
+You can now access the app on [https://localhost:3000](https://localhost:3000)
 
 ## Deployment
 

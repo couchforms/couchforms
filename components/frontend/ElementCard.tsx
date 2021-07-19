@@ -8,6 +8,7 @@ import {
   InstructionsElement,
   AnswerData,
 } from "../../lib/types";
+import ProgressBar from "./ProgressBar";
 
 type OpenCardProps = {
   element: OpenElement;
@@ -228,6 +229,7 @@ type ElementCardProps = {
     skipSaveAnswer?: boolean
   ) => void;
   finalElement: boolean;
+  progress: number;
 };
 
 export default function ElementCard({
@@ -235,6 +237,7 @@ export default function ElementCard({
   colorPrimary,
   onSubmit,
   finalElement,
+  progress,
 }: ElementCardProps) {
   const getElementSpecificCard = (element) => {
     if (element.type === "open") {
@@ -265,8 +268,11 @@ export default function ElementCard({
     }
   };
   return (
-    <div className="bg-white py-8 px-4 shadow-lg sm:rounded-xl sm:px-10 text-center">
-      {getElementSpecificCard(element)}
+    <div className="bg-white overflow-hidden shadow-lg sm:rounded-xl  text-center">
+      <div className="py-8 px-4 sm:px-10">
+        {getElementSpecificCard(element)}
+      </div>
+      <ProgressBar progress={progress} colorPrimary={colorPrimary} />
     </div>
   );
 }

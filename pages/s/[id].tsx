@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import App from "../../components/frontend/App";
 import prisma from "../../lib/prisma";

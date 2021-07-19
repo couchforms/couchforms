@@ -9,7 +9,7 @@ export default function ManageLayout({ survey, setSurvey, persistSurvey }) {
   };
 
   return (
-    <div className="mx-5 my-4 bg-white overflow-hidden shadow rounded-lg">
+    <div className="mx-5 my-4 bg-white overflow-hidden shadow rounded-lg overflow-y-auto">
       <div className="px-4 py-5 sm:p-6">
         <div>
           <h3 className="text-lg leading-6 font-medium text-gray-900">

@@ -55,6 +55,7 @@ export default function BuildSurvey({ surveyData }: BuildSurveyProps) {
         finalElement={
           elementsDraft[elementsDraft.length - 1].id === activeElementId
         }
+        progress={0.33}
       />
     );
   };
@@ -65,7 +66,7 @@ export default function BuildSurvey({ surveyData }: BuildSurveyProps) {
       setSurvey={setSurvey}
     >
       <div className="flex-1 flex items-stretch overflow-hidden">
-        <main className="w-full md:w-6/12 bg-gray-100 border-r border-gray-200 overflow-y-auto lg:w-4/12">
+        <main className="flex flex-col w-full md:w-1/3 bg-gray-100 border-r border-gray-200">
           <h1 id="primary-heading" className="sr-only">
             Manage Questions
           </h1>
@@ -91,15 +92,24 @@ export default function BuildSurvey({ surveyData }: BuildSurveyProps) {
             />
           )}
         </main>
-        <aside className="flex-1 hidden md:block overflow-y-auto">
+        <aside
+          className="flex-1 hidden md:block overflow-y-auto"
+          style={{ pointerEvents: "none" }}
+        >
           {/* Primary column */}
           <section
             aria-labelledby="primary-heading"
-            className="min-w-0 flex-1 h-full overflow-hidden lg:order-last bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col justify-center py-12 sm:px-6 lg:px-8 shadow-inner"
+            className="relative min-w-0 flex-1 h-full overflow-hidden lg:order-last bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col justify-center py-12 sm:px-6 lg:px-8 shadow-inner"
           >
+            <div className="absolute right-4 bottom-4">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-lg text-lg font-medium bg-gray-100 text-gray-500">
+                Element Preview
+              </span>
+            </div>
             <h1 id="primary-heading" className="sr-only">
-              Preview
+              Element Preview
             </h1>
+
             <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-2xl">
               {getActiveElementCard()}
             </div>

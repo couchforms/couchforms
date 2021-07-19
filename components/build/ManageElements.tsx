@@ -101,7 +101,7 @@ function SingleElement({
             activeElementId === element.id
               ? "border-2 border-pink-400 border-opacity-50"
               : "",
-            "bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 mb-5 focus:outline-none"
+            "bg-white shadow rounded-lg divide-y divide-gray-200 mb-5 focus:outline-none"
           )}
         >
           <div
@@ -140,7 +140,7 @@ function SingleElement({
   );
 }
 
-export default function ManageQuestions({
+export default function ManageElements({
   survey,
   setSurvey,
   persistSurvey,
@@ -203,40 +203,44 @@ export default function ManageQuestions({
   };
 
   return (
-    <div className="mx-5 my-5">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
-          {(provided, snapshot) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
-              {survey.elementsDraft.map((element, elementIdx) => (
-                <SingleElement
-                  key={elementIdx}
-                  element={element}
-                  elementIdx={elementIdx}
-                  activeElementId={activeElementId}
-                  setActiveElementId={setActiveElementId}
-                  survey={survey}
-                  setSurvey={setSurvey}
-                  persistSurvey={persistSurvey}
-                />
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-      <button
-        type="button"
-        className="w-full content-center text-center px-4 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
-        onClick={() => setShowElementModal(true)}
-      >
-        + Add Element
-      </button>
+    <>
+      <div className="px-5 py-5 h-full overflow-y-auto shadow-inner bg-gray-100">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(provided, snapshot) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {survey.elementsDraft.map((element, elementIdx) => (
+                  <SingleElement
+                    key={elementIdx}
+                    element={element}
+                    elementIdx={elementIdx}
+                    activeElementId={activeElementId}
+                    setActiveElementId={setActiveElementId}
+                    survey={survey}
+                    setSurvey={setSurvey}
+                    persistSurvey={persistSurvey}
+                  />
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
+      <div className="w-full border-t border-gray-200">
+        <button
+          type="button"
+          className="w-full content-center text-center px-4 py-3 shadow-sm text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 focus:outline-none"
+          onClick={() => setShowElementModal(true)}
+        >
+          + Add Element
+        </button>
+      </div>
       <AddElementModal
         open={showElementModal}
         setOpen={setShowElementModal}
         addElement={addElement}
       />
-    </div>
+    </>
   );
 }

@@ -28,10 +28,10 @@ export default function MenuSteps({ survey, currentStep }: MenuStepsProps) {
     },
   ];
   return (
-    <div className="flex-1 flex items-center justify-center">
-      <div className="sm:hidden">
+    <div className="flex-1 flex items-center justify-left sm:justify-center">
+      <div className="sm:hidden w-full">
         <label htmlFor="tabs" className="sr-only">
-          Select a tab
+          Select a view
         </label>
         <select
           id="tabs"

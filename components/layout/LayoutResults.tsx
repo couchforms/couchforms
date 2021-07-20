@@ -48,51 +48,23 @@ export default function LayoutShare({
             </div>
             <div className="relative z-10 flex-shrink-0 h-16 bg-gray-50 border-b border-gray-200 flex">
               <div className="flex-1 flex px-4 items-center justify-center">
-                <div className="sm:hidden">
-                  <label htmlFor="tabs" className="sr-only">
-                    Select a mode
-                  </label>
-                  <select
-                    id="tabs"
-                    name="tabs"
-                    className="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                    defaultValue={
-                      resultModes.find((mode) => mode.id === resultMode).name
-                    }
-                    onChange={(e) =>
-                      setResultMode(
-                        e.target.children[e.target.selectedIndex].id
-                      )
-                    }
-                  >
-                    {resultModes.map((mode) => (
-                      <option id={mode.id} key={mode.name}>
-                        {mode.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="hidden sm:block">
-                  <nav className="flex space-x-4" aria-label="resultModes">
-                    {resultModes.map((mode) => (
-                      <button
-                        key={mode.name}
-                        onClick={() => setResultMode(mode.id)}
-                        className={classNames(
-                          mode.id === resultMode
-                            ? "bg-gray-200 text-gray-800"
-                            : "text-gray-600 hover:text-gray-800",
-                          "px-3 py-2 font-medium text-sm rounded-md"
-                        )}
-                        aria-current={
-                          mode.id === resultMode ? "page" : undefined
-                        }
-                      >
-                        {mode.name}
-                      </button>
-                    ))}
-                  </nav>
-                </div>
+                <nav className="flex space-x-4" aria-label="resultModes">
+                  {resultModes.map((mode) => (
+                    <button
+                      key={mode.name}
+                      onClick={() => setResultMode(mode.id)}
+                      className={classNames(
+                        mode.id === resultMode
+                          ? "bg-gray-200 text-gray-800"
+                          : "text-gray-600 hover:text-gray-800",
+                        "px-3 py-2 font-medium text-sm rounded-md"
+                      )}
+                      aria-current={mode.id === resultMode ? "page" : undefined}
+                    >
+                      {mode.name}
+                    </button>
+                  ))}
+                </nav>
               </div>
             </div>
           </header>

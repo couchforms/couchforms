@@ -8,7 +8,7 @@ export default function MenuBreadcrumbs({ survey }) {
 
   return (
     <div className="hidden sm:flex sm:flex-1">
-      <nav className="flex" aria-label="Breadcrumb">
+      <nav className="hidden lg:flex" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-4">
           <li>
             <div>

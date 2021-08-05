@@ -1,8 +1,8 @@
 <p align="center">
-<a href="https://github.com/couchsurvey/couchsurvey">
+<a href="https://github.com/couchforms/couchforms">
     <img src="https://opensource.couchsurvey.com/couchsurvey-icon-light.svg" alt="Logo" width="160">
   </a>
-  <h3 align="center">couchsurvey</h3>
+  <h3 align="center">couchforms</h3>
 
   <p align="center">
     An Open-Source alternative to Typeform and Microsoft Forms
@@ -11,9 +11,9 @@
   </p>
 </p>
 
-## About Couchsurvey
+## About Couchforms
 
-<img width="937" alt="screenshot-couchsurvey" src="https://user-images.githubusercontent.com/675065/126078214-83cb0077-5149-4ac7-ae66-502ff31e9705.png">
+<img width="937" alt="screenshot-couchforms" src="https://user-images.githubusercontent.com/675065/126078214-83cb0077-5149-4ac7-ae66-502ff31e9705.png">
 
 Are you looking for a modern open source survey & forms platform that keeps your participants' data private and secure? We are building a new & open user experience with a focus on privacy, usability and API-first integrability.
 
@@ -43,7 +43,7 @@ To get the project running locally on your machine you need to have the followin
 1. Clone the project:
 
 ```
-git clone https://github.com/couchsurvey/couchsurvey.git && cd couchsurvey
+git clone https://github.com/couchforms/couchforms.git && cd couchforms
 ```
 
 2. Install Node.JS packages:
@@ -74,12 +74,12 @@ You can now access the app on [https://localhost:3000](https://localhost:3000)
 
 ## Deployment
 
-The easiest way to deploy couchsurvey yourself on your own machine is using Docker. This requires Docker and docker-compose on your system to work.
+The easiest way to deploy couchforms yourself on your own machine is using Docker. This requires Docker and docker-compose on your system to work.
 
 Clone the repository:
 
 ```
-git clone https://github.com/couchsurvey/couchsurvey.git && cd couchsurvey
+git clone https://github.com/couchforms/couchforms.git && cd couchforms
 ```
 
 Create a `.env` file based on `.env.examples` and change it according to your setup. You must set the email variables to valid SMTP-credentials for the login to work:
@@ -88,7 +88,7 @@ Create a `.env` file based on `.env.examples` and change it according to your se
 cp .env.example .env && nano .env
 ```
 
-Start the docker-compose process to build and spin up the couchsurvey container as well as the postgres database.
+Start the docker-compose process to build and spin up the couchforms container as well as the postgres database.
 
 ```
 docker-compose up -d

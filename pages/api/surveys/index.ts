@@ -25,7 +25,6 @@ export default async function handle(
     let id;
     while (!validId) {
       id = generateId(8);
-      console.log("trying first id:", id);
       validId = await checkIdAvailability(id);
     }
     // create survey in database

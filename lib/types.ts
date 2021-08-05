@@ -1,5 +1,3 @@
-import { Prisma } from "@prisma/client";
-
 export type Survey = {
   id: string;
   createdAt: string;

@@ -135,10 +135,7 @@ function MultipleChoiceCard({
                   style={{ color: colorPrimary }}
                   className="focus:ring-0 h-4 w-4 border-gray-300 rounded"
                   checked={checkboxStates[optionIdx]}
-                  onChange={(e) => {
-                    console.log("click");
-                    optionClicked(option, optionIdx, element);
-                  }}
+                  onChange={(e) => optionClicked(option, optionIdx, element)}
                 />
               </div>
               <div className="ml-3 text-sm">

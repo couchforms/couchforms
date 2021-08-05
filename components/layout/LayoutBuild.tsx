@@ -22,7 +22,6 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
   }
 
   const publishSurvey = async () => {
-    console.log("publish");
     try {
       const res = await fetch(`/api/surveys/${survey.id}/publish`, {
         method: "POST",

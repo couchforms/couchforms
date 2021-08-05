@@ -2,6 +2,8 @@ import { useState } from "react";
 import { DateTime } from "luxon";
 
 import { getElementType } from "../../lib/elements";
+import { AnswersByElementId, AnswerSession, Survey } from "../../lib/types";
+import DownloadResponses from "./DownloadResponses";
 
 export const getElementTypeIcon = (type) => {
   const elementType = getElementType(type);
@@ -22,11 +24,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+type ResultsResponseProps = {
+  survey: Survey;
+  answerSessions: AnswerSession[];
+  answersByElementId: AnswersByElementId;
+};
+
 export default function ResultsResponses({
   survey,
   answerSessions,
   answersByElementId,
-}) {
+}: ResultsResponseProps) {
   const [activeAnswerSession, setActiveAnswerSession] = useState(
     answerSessions.length > 0 ? answerSessions[0] : null
   );
@@ -34,11 +42,21 @@ export default function ResultsResponses({
   const getElementById = (id) => {
     return survey.elements.find((e) => e.id === id);
   };
+
+  const getElementQuestion = (id) => {
+    const element = getElementById(id);
+    if ("question" in element.data) {
+      return element.data.question;
+    } else {
+      return "";
+    }
+  };
+
   return (
-    <div className="flex flex-col w-full flex-1 overflow-hidden max-w-7xl mx-auto">
-      <div className="flex-1 relative z-0 flex overflow-hidden">
+    <div className="flex flex-col w-full flex-1 overflow-visible max-w-7xl mx-auto">
+      <div className="flex-1 relative z-0 flex overflow-visible">
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
-          <div className="bg-white overflow-hidden shadow sm:rounded-lg">
+          <div className="bg-white overflow-visible shadow sm:rounded-lg">
             {activeAnswerSession && (
               <div className="px-4 py-5 sm:p-12">
                 <div className="flow-root">
@@ -71,10 +89,7 @@ export default function ResultsResponses({
                                     href="#"
                                     className="font-medium text-gray-900"
                                   >
-                                    {
-                                      getElementById(answer.elementId).data
-                                        .question
-                                    }
+                                    {getElementQuestion(answer.elementId)}
                                   </a>
                                 </div>
                                 {/* <p className="mt-0.5 text-sm text-gray-500">
@@ -102,14 +117,12 @@ export default function ResultsResponses({
           </div>
         </main>
         <aside className="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-gray-200">
-          <div className="px-6 pt-6 pb-4">
+          <div className="pt-6 pb-1">
             <h2 className="text-lg font-medium text-gray-900">Responses</h2>
-            {/* <button
-              type="button"
-              className="inline-flex justify-center px-3.5 py-2 mt-4 w-full border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
-            >
-              Download responses
-            </button> */}
+            <DownloadResponses
+              survey={survey}
+              answerSessions={answerSessions}
+            />
           </div>
           {/* Directory list */}
           <nav

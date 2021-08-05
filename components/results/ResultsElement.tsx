@@ -112,7 +112,6 @@ function MultipleChoiceResults({
         }
       }
     }
-    console.log(dataset);
     return dataset;
   };
 

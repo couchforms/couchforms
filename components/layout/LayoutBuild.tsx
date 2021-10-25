@@ -46,16 +46,16 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="h-screen bg-gray-50 flex overflow-hidden">
+      <div className="flex h-screen overflow-hidden bg-gray-50">
         {/* Content area */}
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex flex-col flex-1 overflow-hidden">
           <header className="w-full">
-            <div className="relative z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 shadow-sm flex">
-              <div className="flex-1 flex px-4 sm:px-6">
+            <div className="relative z-10 flex flex-shrink-0 h-16 bg-white border-b border-gray-200 shadow-sm">
+              <div className="flex flex-1 px-4 sm:px-6">
                 <MenuBreadcrumbs survey={survey} />
                 <MenuSteps survey={survey} currentStep="build" />
-                <div className="ml-2 flex flex-1 items-center justify-end space-x-2 sm:ml-6 sm:space-x-4">
-                  <span className="hidden lg:inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-pink-100 text-pink-700">
+                <div className="flex items-center justify-end flex-1 ml-2 space-x-2 sm:ml-6 sm:space-x-4">
+                  <span className="items-center hidden px-4 py-2 text-xs font-medium text-pink-700 bg-pink-100 rounded-full lg:inline-flex">
                     <svg
                       className="-ml-0.5 mr-1.5 h-2 w-2 text-pink-400"
                       fill="currentColor"
@@ -67,8 +67,8 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
                   </span>
 
                   <Link href={`/surveys/${survey.id}/preview`}>
-                    <a className="flex bg-gray-400 p-2 rounded-lg items-center justify-center text-white hover:bg-gray-500 focus:outline-none">
-                      <EyeIcon className="h-4 w-4" aria-hidden="true" />
+                    <a className="flex items-center justify-center p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-500 focus:outline-none">
+                      <EyeIcon className="w-4 h-4" aria-hidden="true" />
                       <span className="sr-only">Preview</span>
                     </a>
                   </Link>
@@ -99,7 +99,7 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
                         >
                           <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-80 left-3/4 sm:px-0 lg:max-w-">
                             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                              <div className="bg-white p-7 text-sm text-gray-700">
+                              <div className="text-sm text-gray-700 bg-white p-7">
                                 Your survey is now open to the world. Share the
                                 following link to let your participants access
                                 the survey.
@@ -109,7 +109,7 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
                               </div>
                               <div className="p-4 bg-gray-50">
                                 <div className="sm:flex">
-                                  <div className="min-w-0 flex-1">
+                                  <div className="flex-1 min-w-0">
                                     <label
                                       htmlFor="surveyLink"
                                       className="sr-only"
@@ -120,7 +120,7 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
                                       id="surveyLink"
                                       type="text"
                                       placeholder="Enter your email"
-                                      className="block w-full px-4 py-3 rounded-md border-0 text-sm text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
+                                      className="block w-full px-4 py-3 text-sm text-gray-700 placeholder-gray-500 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                                       value={getPublicSurveyUrl()}
                                       disabled
                                     />
@@ -128,7 +128,7 @@ export default function LayoutBuild({ title, survey, setSurvey, children }) {
                                   <div className="mt-3 sm:mt-0 sm:ml-3">
                                     <button
                                       type="submit"
-                                      className="block w-full py-3 px-4 rounded-md shadow bg-gray-800 text-white text-sm font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
+                                      className="block w-full px-4 py-3 text-sm font-medium text-white bg-gray-800 rounded-md shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                                       onClick={() => {
                                         navigator.clipboard.writeText(
                                           getPublicSurveyUrl()

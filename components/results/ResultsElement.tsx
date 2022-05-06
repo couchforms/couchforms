@@ -36,21 +36,21 @@ export const getElementTypeIcon = (type) => {
         "rounded-lg inline-flex p-3 ring-4 ring-white"
       )}
     >
-      <elementType.icon className="h-4 w-4" aria-hidden="true" />
+      <elementType.icon className="w-4 h-4" aria-hidden="true" />
     </span>
   ) : null;
 };
 
 function BaseResults({ element, children }) {
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg my-8">
+    <div className="my-8 overflow-hidden bg-white rounded-lg shadow">
       <div className="px-4 py-5 sm:p-6">
         <div className="flex items-center">
           <div className="flex-shrink-0">
             {getElementTypeIcon(element.type)}
           </div>
           <div className="ml-4">
-            <h3 className="text-md leading-6 font-medium text-gray-900">
+            <h3 className="font-medium leading-6 text-gray-900 text-md">
               {element.data.question}
             </h3>
           </div>
@@ -64,7 +64,7 @@ function BaseResults({ element, children }) {
 function OpenResults({ element, elementAnswers }) {
   return (
     <BaseResults element={element}>
-      <div className="flow-root mt-6 px-8 text-center my-4">
+      <div className="flow-root px-8 my-4 mt-6 text-center">
         <ul className="-my-5 divide-y divide-gray-200">
           {elementAnswers.map((answer) => (
             <li key={answer.createdAt} className="py-5">
@@ -127,7 +127,7 @@ function MultipleChoiceResults({
     ],
   };
 
-  const options = {
+  const options: any = {
     indexAxis: "y",
     responsive: true,
     plugins: {
@@ -148,8 +148,8 @@ function MultipleChoiceResults({
   };
   return (
     <BaseResults element={element}>
-      <div className="flow-root mt-6 px-8 text-center my-4">
-        <Bar type="bar" data={data} options={options} height={75} />
+      <div className="flow-root px-8 my-4 mt-6 text-center">
+        <Bar data={data} options={options} height={75} />
       </div>
     </BaseResults>
   );

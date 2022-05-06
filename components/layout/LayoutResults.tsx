@@ -33,21 +33,21 @@ export default function LayoutShare({
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="bg-gray-50 flex overflow-hidden h-screen">
-        <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex min-h-screen overflow-hidden bg-gray-50">
+        <div className="flex flex-col flex-1 overflow-hidden">
           <header className="w-full">
-            <div className="relative z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex">
-              <div className="flex-1 flex px-4 sm:px-6">
+            <div className="relative z-10 flex flex-shrink-0 h-16 bg-white border-b border-gray-200">
+              <div className="flex flex-1 px-4 sm:px-6">
                 <MenuBreadcrumbs survey={survey} />
                 <MenuSteps survey={survey} currentStep="results" />
-                <div className="flex flex-1 items-center justify-end text-right space-x-2 sm:space-x-4">
+                <div className="flex items-center justify-end flex-1 space-x-2 text-right sm:space-x-4">
                   {/* Profile dropdown */}
                   <MenuProfile />
                 </div>
               </div>
             </div>
-            <div className="relative z-10 flex-shrink-0 h-16 bg-gray-50 border-b border-gray-200 flex">
-              <div className="flex-1 flex px-4 items-center justify-center">
+            <div className="relative z-10 flex flex-shrink-0 h-16 border-b border-gray-200 bg-gray-50">
+              <div className="flex items-center justify-center flex-1 px-4">
                 <nav className="flex space-x-4" aria-label="resultModes">
                   {resultModes.map((mode) => (
                     <button

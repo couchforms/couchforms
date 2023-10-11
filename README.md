@@ -1,7 +1,6 @@
+<p align="center"><strong>:warning: Note:<br/>Couchforms is no longer in active development. Please see <a href="https://github.com/formbricks/formbricks">Formbricks</a> for open source surveys.</strong></p>
+
 <p align="center">
-<a href="https://github.com/couchforms/couchforms">
-    <img src="https://opensource.couchsurvey.com/couchsurvey-icon-light.svg" alt="Logo" width="160">
-  </a>
   <h3 align="center">couchforms</h3>
 
   <p align="center">
